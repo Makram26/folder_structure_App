@@ -109,31 +109,7 @@ function Button(props) {
             </TouchableOpacity>
           </View>
         </>
-      ) : discoverCardLastBtn ? (
-        <>
-          <View
-            style={{
-              marginTop: marginTop,
-            }}>
-            <TouchableOpacity
-              onPress={onPress}
-              style={{
-                ...styles.smallBtnWrap,
-                width: normalized.wp('60'),
-                backgroundColor: AppColors.secondaryColor.mediumPink,
-
-                borderColor: borderCol,
-              }}>
-              <appIcons.Ionicons
-                name={iconName}
-                color={AppColors.secondaryColor.darkPurple}
-                size={AppIcons.commonIcons.smallest}
-              />
-              <Text style={{ ...styles.smallBtntxt }}>{label}</Text>
-            </TouchableOpacity>
-          </View>
-        </>
-      ) : socialBtn ? (
+      )  : socialBtn ? (
         <>
           <TouchableOpacity
             onPress={onPress}
@@ -170,6 +146,7 @@ function Button(props) {
               name={'person-circle-outline'}
               color={AppColorss.primaryColor.darkBlack}
               size={AppIcons.commonIcons.smallest}
+              style={{marginTop:normalized.wp(1)}}
             />
             <Text style={{ ...styles.TxtFont, color: txtColor }}>{label}</Text>
           </TouchableOpacity>

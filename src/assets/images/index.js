@@ -1,5 +1,5 @@
-const images = {
+export const images = {
   logo: require('./appstore.png'),
+  googleLogo:require('./googleLogo.png')
 };
 
-export default images;

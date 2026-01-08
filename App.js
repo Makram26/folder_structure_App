@@ -1,18 +1,28 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Provider} from 'react-redux';
+import Home from './src/screens/Home';
+import Store from './src/redux/store';
 
-import images from './src/assets/images';
-import normalized from './src/utils/AppConstants'
+import Toast from 'react-native-toast-message';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <View>
-      <Image style={{width:normalized.wp(100),height:normalized.hp(100)}} source={images.logo}/>
-      <Text>App</Text>
-    </View>
-  )
-}
+    <>
+     <Provider store={Store}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast />
+    </Provider>
+    </>
+   
+  );
+};
 
-export default App
-
-const styles = StyleSheet.create({})
+export default App;
