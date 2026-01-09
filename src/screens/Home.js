@@ -349,18 +349,18 @@ const Home = () => {
       // onChangeText={props.handleChange('PhoneNumber')}
       />
 
-<TextInputs
-                        userName
-                        placeholder={('placeholders.fullName')}
-                        placeholderTextColor={
-                          AppColors.secondaryColor.lightGray
-                        }
-                        keyboardType={'default'}
-                        returnKeyType={'next'}
-                        // value={props.values.FullName}
-                        // onChangeText={props.handleChange('FullName')}
-                      />
-                      {/* <Text style={styles.errorTxt}>
+      <TextInputs
+        userName
+        placeholder={('placeholders.fullName')}
+        placeholderTextColor={
+          AppColors.secondaryColor.lightGrayz
+        }
+        keyboardType={'default'}
+        returnKeyType={'next'}
+      // value={props.values.FullName}
+      // onChangeText={props.handleChange('FullName')}
+      />
+      {/* <Text style={styles.errorTxt}>
                         {props.touched.FullName && props.errors.FullName}
                       </Text> */}
 
