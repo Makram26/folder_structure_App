@@ -436,65 +436,6 @@ function Button(props) {
               <Text style={{ ...styles.socialTxt, color: txtColor }}>{label}</Text>
             </TouchableOpacity>
           </>
-        ) : interested ? (
-          <View
-            style={{
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={onPress}
-              disabled={loading}
-              style={{
-                ...styles.interested,
-                width: eventFl ? normalized.wp('43%') : normalized.wp('51%'),
-                backgroundColor: isInterested
-                  ? '#76243F'
-                  : AppColors.secondaryColor.PeachyPink,
-              }}>
-              <Text
-                style={{
-                  ...styles.interestedText,
-                  color: isInterested
-                    ? '#FFFFFF'
-                    : AppColors.primaryColor.darkBlack,
-                }}>
-                {loading
-                  ? t('buttonsTxt.pleaseWait')
-                  : isInterested
-                    ? t('buttonsTxt.interested')
-                    : t('buttonsTxt.interested')}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        ) : interestedBtn ? (
-          <View
-            style={{
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={onPress}
-              disabled={loading}
-              style={{
-                ...styles.interestedbtn,
-                backgroundColor: isInterested
-                  ? '#76243F'
-                  : AppColors.secondaryColor.PeachyPink,
-              }}>
-              <Text
-                style={{
-                  ...styles.interestedText,
-                  color: isInterested
-                    ? '#FFFFFF'
-                    : AppColors.primaryColor.darkBlack,
-                }}>
-                {loading
-                  ? t('buttonsTxt.pleaseWait')
-                  : isInterested
-                    ? t('buttonsTxt.interested')
-                    : t('buttonsTxt.interested')}
-              </Text>
-            </TouchableOpacity>
-          </View>
         ) : null}
     </>
   );

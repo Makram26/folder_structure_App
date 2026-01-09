@@ -176,7 +176,7 @@ function Headers({
             <TouchableOpacity
               onPress={() => setShowLoader(prev => !prev)}
               style={{alignSelf: 'flex-end'}}>
-              <appIcons.AntDesign name="search1" size={24} color="white" />
+              <appIcons.AntDesign name="search1" size={24} color="#000000" />
             </TouchableOpacity>
           )}
         </View>
