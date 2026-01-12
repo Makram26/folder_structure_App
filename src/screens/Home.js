@@ -14,7 +14,7 @@ import CustomModal from '../components/Modal/Modal'
 import TextInputs from '../components/TextInputs/TextInputs'
 
 
-const Home = () => {
+const Home = ({navigation}) => {
 
   const { slideIn } = useAnimatedNavigation();
 
@@ -46,8 +46,9 @@ const Home = () => {
       <Headers
         backBtnHeader2
       // onPress={() => {
-      //   slideIn().goBack();
-      // }}+
+      //   // slideIn().goBack();
+      //   // navigation.openDrawer();
+      // }}
       />
 
       <Headers

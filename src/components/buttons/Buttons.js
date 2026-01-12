@@ -67,7 +67,8 @@ function Button(props) {
     languageBtn,
     loading,
     eventFl,
-    favorite
+    favorite,
+    image
   } = props;
   return (
     <>
@@ -79,10 +80,7 @@ function Button(props) {
               onPress={onPress}
               style={{
                 ...styles.largeBtnWrap,
-                borderColor: borderCol,
-                backgroundColor: isInterested
-                  ? '#76243F'
-                  : AppColors.secondaryColor.PeachyPink,
+                // borderColor: borderCol,
               }}>
               <Text style={{ ...styles.txtTitle, color: txtColor }}>{label}</Text>
             </TouchableOpacity>
@@ -113,7 +111,7 @@ function Button(props) {
         <>
           <TouchableOpacity
             onPress={onPress}
-            style={{ ...styles.socialBtnWrap, borderColor: AppColorss.primaryColor.borderColors, marginTop: marginTop }}>
+            style={{ ...styles.socialBtnWrap, borderColor: AppColors.secondaryColor.borderColor, marginTop: marginTop }}>
             <TouchableOpacity
               disabled={disable}
               onPress={onPress}
@@ -123,7 +121,7 @@ function Button(props) {
               }}>
               <View style={styles.imgLogoWrap}>
                 <Image
-                  source={images.googleLogo}
+                  source={image}
                   resizeMode="contain"
                   style={styles.innerImg}
                 />

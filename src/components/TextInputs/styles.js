@@ -14,8 +14,10 @@ const styles = StyleSheet.create({
     // fontSize: AppFonts.commonFont.small,
     fontSize: AppFonts.commonFont.mediumSmall,
     fontWeight:"400",
+  
     // height: normalized.hp('6%'),
-    height:normalized.wp("13%"),
+    height:normalized.wp("10%"),
+    // paddingVertical:normalized.wp(20),
     width: normalized.wp('82%'),
     flex: 1,
   },
@@ -65,15 +67,15 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   profileTxtInput: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: 10,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: AppColors.secondaryColor.lightGray,
-    marginTop: normalized.wp('3%'),
-    paddingHorizontal: normalized.hp('1'),
+    // marginTop: normalized.wp(2),
+    paddingHorizontal: normalized.wp(2),
   },
 });
 

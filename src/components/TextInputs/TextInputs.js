@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/prop-types */
-import React, {useState} from 'react';
-import {View, TouchableOpacity, TextInput} from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, TextInput } from 'react-native';
 import {
   AppColor,
   AppColors,
@@ -29,10 +29,14 @@ function TextInputs(props) {
     nickname,
     placeholderTextColor,
     password,
+    lockshow,
     PhoneNo,
     userName,
     profileTxtInput,
     filter,
+    onFocus,
+    onBlur,
+    isFocused,
   } = props;
 
   const eyeIconFun = () => {
@@ -48,7 +52,7 @@ function TextInputs(props) {
     <>
       {simple ? (
         <>
-          <View style={{...styles.wrapSimple,borderColor:AppColorss.primaryColor.borderColors}}>
+          <View style={{ ...styles.wrapSimple, borderColor: AppColorss.primaryColor.borderColors }}>
             <appIcons.Entypo
               name="mail"
               size={17}
@@ -75,14 +79,26 @@ function TextInputs(props) {
         </>
       ) : profileTxtInput ? (
         <>
-          <View style={styles.profileTxtInput}>
+          <View
+            style={[
+              styles.profileTxtInput,
+              isFocused && {
+                borderColor: AppColors.primaryColor.mainContent,
+              },
+            ]}>
             <TextInput
               placeholder={placeholder}
-              placeholderTextColor={AppColorss.primaryColor.darkBlack}
+              placeholderTextColor={
+                isFocused
+                  ? AppColors.primaryColor.mainContent
+                  : AppColorss.primaryColor.lightGray
+              }
               style={{
                 ...styles.txtInpStyle,
                 marginTop: marginTop,
-                color: AppColorss.primaryColor.darkBlack,
+                color: isFocused
+                  ? AppColors.primaryColor.mainContent
+                  : AppColors.primaryColor.lightGray,
               }}
               maxLength={maxLength}
               autoCapitalize={'none'}
@@ -90,26 +106,44 @@ function TextInputs(props) {
               secureTextEntry={secureTextEntry}
               value={value}
               onChangeText={onChangeText}
-              cursorColor={AppColorss.primaryColor.darkBlack}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              cursorColor={AppColors.primaryColor.mainContent}
             />
           </View>
         </>
       ) : password ? (
         <>
-          <View style={{...styles.wrapSimple,borderColor:AppColorss.primaryColor.borderColors}}>
-            <appIcons.Fontisto
-              name="locked"
-              size={17}
-              color={AppColorss.primaryColor.textColor}
-              style={styles.lockIcon}
-            />
+          <View style={[styles.wrapSimple, isFocused && {
+                borderColor: AppColors.primaryColor.mainContent,
+              }]}>
+            {
+              lockshow ? (
+                <appIcons.Fontisto
+                  name="locked"
+                  size={17}
+                  color={AppColorss.primaryColor.textColor}
+                  style={styles.lockIcon}
+                />
+              ):
+              (
+                <View style={{ paddingHorizontal: normalized.wp(1),}}>
+                </View>
+              )
+            }
             <TextInput
               placeholder={placeholder}
-              placeholderTextColor={placeholderTextColor}
+              placeholderTextColor={
+                isFocused
+                  ? AppColors.primaryColor.mainContent
+                  : AppColors.primaryColor.lightGray
+              }
               style={{
                 ...styles.txtInpStyle,
                 marginTop: marginTop,
-                color: AppColorss.primaryColor.darkBlack,
+                color: isFocused
+                ? AppColors.primaryColor.mainContent
+                : AppColorss.primaryColor.lightGray,
               }}
               maxLength={maxLength}
               autoCapitalize={'none'}
@@ -117,13 +151,17 @@ function TextInputs(props) {
               secureTextEntry={showPassword}
               value={value}
               onChangeText={onChangeText}
-              cursorColor={AppColorss.primaryColor.textColor}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              cursorColor={AppColors.primaryColor.mainContent}
             />
             <TouchableOpacity onPress={() => eyeIconFun()}>
               <appIcons.Entypo
                 name={icEye}
                 size={17}
-                color={AppColorss.primaryColor.textColor}
+                color={isFocused
+                  ? AppColors.primaryColor.mainContent
+                  : AppColors.secondaryColor.lightGray}
                 style={styles.icons}
               />
             </TouchableOpacity>
@@ -158,7 +196,7 @@ function TextInputs(props) {
         </>
       ) : userName ? (
         <>
-          <View style={{...styles.wrapSimple,borderColor:AppColorss.primaryColor.borderColors}}>
+          <View style={{ ...styles.wrapSimple, borderColor: AppColorss.primaryColor.borderColors }}>
             <appIcons.Entypo
               name="user"
               size={17}
@@ -220,7 +258,7 @@ function TextInputs(props) {
           />
         </>
       ) : filter ? (
-        <View style={{...styles.wrapSimple,borderColor:AppColorss.primaryColor.borderColors,marginHorizontal:normalized.wp(1)}}>
+        <View style={{ ...styles.wrapSimple, borderColor: AppColorss.primaryColor.borderColors, marginHorizontal: normalized.wp(1) }}>
           <appIcons.EvilIcons
             name="search"
             size={20}

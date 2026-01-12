@@ -32,7 +32,7 @@ function Headers({
   hidefilter,
   filterType
 }) {
-  const {goBack} = useStackNavigator();
+  const {goBack,openDrawer} = useStackNavigator();
   const {slideIn} = useAnimatedNavigation();
   const AppColorss = AppColor();
 
@@ -84,7 +84,7 @@ function Headers({
         <>
           <View style={styles.HeaderWrap}>
             <TouchableOpacity
-              onPress={() => goBack()}
+              onPress={() => openDrawer()}
               style={styles.flexRowHeader2}>
               <appIcons.AntDesign
                 name={'arrowleft'}

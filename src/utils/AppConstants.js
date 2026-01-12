@@ -92,17 +92,17 @@ import {
     primaryColor: {
       darkBlack: '#000000',
       darkWhite: '#FFFFFF',
-      mainContent: '#1fbe73',
+      mainContent: '#030870',
     },
     secondaryColor: {
-      darkGray: '#1f1e1e',
+      mainContent:"#2A0370",
+      darkGray: '#9A9CC5',
       lightGray1: '#545275',
   
-      borderColor: "#AFAFAF",
+      borderColor: "#707070",
       
-      lightGray: '#6E6C81',
-      // #6E6C81
-      // #AFAFAF
+      lightGray: '#707070',
+    
       shadedBlack: '#364257',
       red: 'red',
       selectionColor: '#BEFFC1',

@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
   largeBtnWrap: {
     alignSelf: 'center',
     height: normalized.hp('6%'),
-    backgroundColor: AppColors.secondaryColor.darkPink,
-    borderRadius: 10,
+    backgroundColor: AppColors.primaryColor.mainContent,
+    borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    width: normalized.wp('90%'),
+    width: normalized.wp('88%'),
 
 
 
@@ -44,9 +44,12 @@ const styles = StyleSheet.create({
     paddingVertical: normalized.hp('1.1%'),
     alignItems: 'center',
     justifyContent: 'center',
-    width: normalized.wp('90%'),
+    alignSelf:"center",
+    width: normalized.wp('65%'),
+    marginVertical:normalized.wp(2),
+    
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 100,
     borderColor: AppColors.secondaryColor.lightGray,
   },
   menuBtnMain: {
@@ -126,10 +129,8 @@ const styles = StyleSheet.create({
 
   },
   txtTitle: {
-    fontSize: Platform.OS
-      ? AppFonts.commonFont.small
-      : AppFonts.commonFont.medium,
-    fontWeight: 'bold',
+    fontSize: AppFonts.commonFont.small,
+    fontWeight: '500',
   },
   largeBtnWrap1: {
     alignSelf: 'center',
@@ -196,8 +197,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   socialgoogleTxt: {
-    fontSize: AppFonts.commonFont.small,
-    fontWeight: "700",
+    fontSize: AppFonts.commonFont.mediumSmall,
+    fontWeight: "400",
     alignSelf: 'center',
   },
 

@@ -16,11 +16,16 @@ export const useStackNavigator = () => {
         navigation.replace(screenName, params);
     };
 
+    const openDrawer=()=>{
+        navigation.openDrawer();
+    }
+
 
 
     return {
         navigate,
         goBack,
+        openDrawer,
         replaceScreen,
     };
 };
