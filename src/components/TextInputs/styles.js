@@ -11,13 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   txtInpStyle: {
-    // fontSize: AppFonts.commonFont.small,
     fontSize: AppFonts.commonFont.mediumSmall,
     fontWeight:"400",
-  
-    // height: normalized.hp('6%'),
-    height:normalized.wp("10%"),
-    // paddingVertical:normalized.wp(20),
     width: normalized.wp('82%'),
     flex: 1,
   },
@@ -40,7 +35,8 @@ const styles = StyleSheet.create({
     width: normalized.wp('90%'),
   },
   icons: {
-    width: normalized.wp('10%'),
+    width: normalized.wp('7%'),
+    // backgroundColor:"red"
   },
   lockIcon: {
     paddingLeft: normalized.hp('2%'),
@@ -56,6 +52,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: AppColors.secondaryColor.borderColor,
     marginTop: normalized.wp('1%'),
+    paddingVertical:normalized.wp(1)
   },
   wrapSimple2: {
     flexDirection: 'row',
@@ -76,6 +73,7 @@ const styles = StyleSheet.create({
     borderColor: AppColors.secondaryColor.lightGray,
     // marginTop: normalized.wp(2),
     paddingHorizontal: normalized.wp(2),
+    paddingVertical:normalized.wp(1)
   },
 });
 

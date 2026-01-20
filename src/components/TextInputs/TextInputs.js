@@ -115,8 +115,8 @@ function TextInputs(props) {
       ) : password ? (
         <>
           <View style={[styles.wrapSimple, isFocused && {
-                borderColor: AppColors.primaryColor.mainContent,
-              }]}>
+            borderColor: AppColors.primaryColor.mainContent,
+          }]}>
             {
               lockshow ? (
                 <appIcons.Fontisto
@@ -125,11 +125,11 @@ function TextInputs(props) {
                   color={AppColorss.primaryColor.textColor}
                   style={styles.lockIcon}
                 />
-              ):
-              (
-                <View style={{ paddingHorizontal: normalized.wp(1),}}>
-                </View>
-              )
+              ) :
+                (
+                  <View style={{ paddingHorizontal: normalized.wp(1), }}>
+                  </View>
+                )
             }
             <TextInput
               placeholder={placeholder}
@@ -142,8 +142,8 @@ function TextInputs(props) {
                 ...styles.txtInpStyle,
                 marginTop: marginTop,
                 color: isFocused
-                ? AppColors.primaryColor.mainContent
-                : AppColorss.primaryColor.lightGray,
+                  ? AppColors.primaryColor.mainContent
+                  : AppColorss.primaryColor.lightGray,
               }}
               maxLength={maxLength}
               autoCapitalize={'none'}

@@ -6,131 +6,168 @@ import { AuthContext } from '../../boot/routing';
 import styles from './styles';
 import { images } from '../../assets/images';
 import { AppColors, AppFonts, appIcons, AppIcons, normalized } from '../../utils/AppConstants';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Login = ({ navigation }) => {
   const { signIn } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isEmailFocused, setIsEmailFocused] = useState(false);
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false)
-  const [rememberMe, setRememberMe] = useState(false);
+
+  const [formValues, setFormValues] = useState({
+    email: '',
+    password: '',
+    focusedField: null, // 👈 single source of truth
+    rememberMe: false,
+  });
 
   const handleLogin = () => {
     // Placeholder auth success
     signIn();
   };
 
+
+  const handleInputChange = (field, value) => {
+    setFormValues((prev) => ({ ...prev, [field]: value }));
+  };
+
+
+  const handleFocus = (field) => {
+    setFormValues(prev => ({
+      ...prev,
+      focusedField: field,
+    }));
+  };
+
+  const handleBlur = () => {
+    setFormValues(prev => ({
+      ...prev,
+      focusedField: null,
+    }));
+  };
+
+
+
   return (
-    <View style={styles.container}>
-      <ScrollView 
-      keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}
-       style={{marginBottom:normalized.wp(10)}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "red" }}>
+      <View style={styles.container}>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          style={{ marginBottom: normalized.wp(1) }}>
 
-        <Image source={images.logo} style={styles.logo} />
-        <Text style={styles.heading}>Welcome back</Text>
-        <Text style={styles.subHeading}>Enter your details to get sign in to your account</Text>
+          <Image source={images.logo} style={styles.logo} />
+          <Text style={styles.heading}>Welcome back</Text>
+          <Text style={styles.subHeading}>Enter your details to get sign in to your account</Text>
 
-        <View style={styles.formGap}>
-          <Text style={[styles.label, isEmailFocused && styles.labelFocused]}>
-            Email Address
-          </Text>
-          <TextInputs
-            profileTxtInput
-            placeholder="Enter your email address"
-            value={email}
-            onChangeText={setEmail}
-            placeholderTextColor="#A0A0A0"
-            onFocus={() => setIsEmailFocused(true)}
-            onBlur={() => setIsEmailFocused(false)}
-            isFocused={isEmailFocused}
-          />
-          <Text style={styles.label}>Password</Text>
-          <TextInputs
-            password
-            lockshow={false}
-            placeholder="Enter your password"
-            onFocus={() => setIsPasswordFocused(true)}
-            onBlur={() => setIsPasswordFocused(false)}
-            isFocused={isPasswordFocused}
-            value={password}
-            onChangeText={setPassword}
-            placeholderTextColor="#A0A0A0"
-          />
+          <View style={styles.formGap}>
+            <Text style={[
+              styles.label,
+              formValues.focusedField === 'email' && styles.labelFocused,
+            ]}>
+              Email Address
+            </Text>
 
-          <View style={styles.rememberForgotRow}>
-            <TouchableOpacity
-              style={styles.checkboxRow}
-              onPress={() => setRememberMe(!rememberMe)}>
-              <View
-                style={[
-                  styles.checkbox,
-                  rememberMe && styles.checkboxChecked,
-                ]}>
-                {rememberMe && (
-                  <appIcons.Ionicons
-                    name="checkmark"
-                    size={AppIcons.commonIcons.smallest}
-                    color={AppColors.primaryColor.darkWhite}
-                  />
-                )}
-              </View>
-              <Text style={styles.rememberText}>Remember me</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text style={styles.forgotText}>Forgot Password?</Text>
-            </TouchableOpacity>
+            <TextInputs
+              profileTxtInput
+              placeholder="Enter your email address"
+              value={formValues.email}
+              onChangeText={(text) => handleInputChange('email', text)}
+              onFocus={() => handleFocus('email')}
+              onBlur={handleBlur}
+              isFocused={formValues.focusedField === 'email'}
+              placeholderTextColor="#A0A0A0"
+            />
+            <Text
+              style={[
+                styles.label,
+                formValues.focusedField === 'password' && styles.labelFocused,
+              ]}
+            >Password</Text>
+            <TextInputs
+              password
+              lockshow={false}
+              placeholder="Enter your password"
+              value={formValues.password}
+              onChangeText={(text) => handleInputChange('password', text)}
+              onFocus={() => handleFocus('password')}
+              onBlur={handleBlur}
+              isFocused={formValues.focusedField === 'password'}
+              placeholderTextColor="#A0A0A0"
+            />
+
+            <View style={styles.rememberForgotRow}>
+              <TouchableOpacity
+                style={styles.checkboxRow}
+                onPress={() => handleInputChange('rememberMe', !formValues.rememberMe)}>
+                <View
+                  style={[
+                    styles.checkbox,
+                    formValues.rememberMe && styles.checkboxChecked,
+                  ]}>
+                  {formValues.rememberMe && (
+                    <appIcons.Ionicons
+                      name="checkmark"
+                      size={AppIcons.commonIcons.moresmall}
+                      color={AppColors.primaryColor.darkWhite}
+                    />
+                  )}
+                </View>
+                <Text style={styles.rememberText}>Remember me</Text>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Text style={styles.forgotText}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
+
+            <Button
+              largeBtn
+              label={'Login'}
+              onPress={handleLogin}
+              txtColor={AppColors.primaryColor.darkWhite}
+            />
           </View>
 
-          <Button
-            largeBtn
-            label={'Login'}
-            onPress={handleLogin}
-            txtColor={AppColors.primaryColor.darkWhite}
-          />
-        </View>
 
-
-        <View style={{ alignItems: "flex-end" }}>
-          <Text style={styles.helper}>
-            Don’t have an account?{' '}
-            <Text
-              style={styles.link}
-              onPress={() => navigation.navigate('Register')}>
-              Sign up
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={styles.helper}>
+              Don’t have an account?{' '}
+              <Text
+                style={styles.link}
+                onPress={() => navigation.navigate('Register')}>
+                Sign up
+              </Text>
             </Text>
+          </View>
+
+          <Text style={{
+            textAlign: "center",
+            marginVertical: normalized.wp(5),
+            fontSize: AppFonts.commonFont.lessMedium,
+            color: AppColors.secondaryColor.mainContent,
+            fontWeight: "500"
+          }}>
+            OR
           </Text>
-        </View>
 
-        <Text style={{
-          textAlign: "center",
-          marginVertical: normalized.wp(5),
-          fontSize: AppFonts.commonFont.lessMedium,
-          color: AppColors.secondaryColor.mainContent,
-          fontWeight: "500"
-        }}>
-          OR
-        </Text>
+          <Button
+            socialBtn
+            label='Continue with Google'
+            disable={false}
+            image={images.googleLogo}
+            // onPress={() => withGooglesignIn()}
+            txtColor={AppColors.primaryColor.darkBlack}
+          />
+          <Button
+            socialBtn
+            label='Continue with Facebook'
+            disable={false}
+            image={images.facebookLogo}
+            // onPress={() => withGooglesignIn()}
+            txtColor={AppColors.primaryColor.darkBlack}
+          />
 
-        <Button
-          socialBtn
-          label='Continue with Google'
-          disable={false}
-          image={images.googleLogo}
-          // onPress={() => withGooglesignIn()}
-          txtColor={AppColors.primaryColor.darkBlack}
-        />
-        <Button
-          socialBtn
-          label='Continue with Facebook'
-          disable={false}
-          image={images.googleLogo}
-          // onPress={() => withGooglesignIn()}
-          txtColor={AppColors.primaryColor.darkBlack}
-        />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
 
-      </ScrollView>
-    </View>
 
   );
 };

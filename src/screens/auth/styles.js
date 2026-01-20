@@ -5,8 +5,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.primaryColor.darkWhite,
-    paddingHorizontal: normalized.wp(6),
-    paddingTop: normalized.hp(6),
+    paddingHorizontal: normalized.wp(4),
+    paddingTop: normalized.wp(2),
+    // backgroundColor:"red"
 
   },
   logo:{
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
   },
   labelFocused: {
     color: AppColors.primaryColor.mainContent,
+    // color:"red"
   },
   rememberForgotRow: {
     flexDirection: 'row',
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
   },
   rememberText: {
     fontSize: AppFonts.commonFont.mediumSmall,
-    color: AppColors.primaryColor.mainContent,
+    color: AppColors.secondaryColor.lightGray,
     fontWeight:"500"
   },
   forgotText: {
@@ -89,6 +91,90 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: normalized.wp(3),
     alignItems: 'center',
+  },
+
+
+
+
+  phoneRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    // marginTop: 12,
+  },
+
+  countryBox: {
+    // flex: 0.45,
+    // height: 50,
+    borderWidth: 1,
+    borderColor: AppColors.secondaryColor.borderColor,
+    borderRadius: 10,
+    paddingHorizontal: normalized.wp(2),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  countryText:{
+    fontSize: AppFonts.commonFont.mediumSmall,
+    marginRight:normalized.wp(2),
+    color:AppColors.secondaryColor.lightGray,
+    fontWeight:"500"
+    // padding:0,
+    // backgroundColor:"red"
+  },
+  flag:{
+   marginRight:normalized.wp(1)
+  },
+
+  mobileBox: {
+    flex:1,
+    // height: 50,
+    
+    borderWidth: 1,
+    borderColor: AppColors.secondaryColor.borderColor,
+    borderRadius: 10,
+    paddingHorizontal: normalized.wp(2),
+    paddingVertical:normalized.wp(0.5),
+    marginLeft:normalized.wp(3),
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  codeText: {
+    fontSize: AppFonts.commonFont.mediumSmall,
+    marginRight:normalized.wp(1),
+    fontWeight:"400",
+    color:AppColors.secondaryColor.lightGray
+  },
+
+  mobileInput: {
+    width:normalized.wp(40),
+    color:AppColors.primaryColor.mainContent,
+    // flex:1,
+    marginRight:normalized.wp(1)
+  },
+
+  focusedBox: {
+    borderColor: '#2F80ED',
+  },
+
+  dropdown: {
+    marginTop: 8,
+    borderWidth: 1,
+    borderColor: AppColors.primaryColor.mainContent,
+    borderRadius: 10,
+    backgroundColor: AppColors.primaryColor.darkWhite,
+  },
+
+  dropdownItem: {
+    padding: 12,
+    borderBottomWidth: 0.5,
+    borderColor: AppColors.primaryColor.mainContent,
+  },
+
+  dropdownText: {
+    fontSize: AppFonts.commonFont.small,
+    fontWeight:"500",
+    color:AppColors.primaryColor.mainContent
   },
 });
 

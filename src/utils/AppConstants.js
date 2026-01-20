@@ -37,6 +37,7 @@ import {
   };
   export const AppIcons = {
     commonIcons: {
+      moresmall:14,
       smallest: 18,
       small: 20,
       medium: 24,
