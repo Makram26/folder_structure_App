@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     // borderWidth: 1.5,
     borderWidth: 1,
     borderColor: AppColors.secondaryColor.borderColor,
-    marginTop: normalized.wp('1%'),
+    // marginTop: normalized.wp('1%'),
+    marginBottom:normalized.wp(3),
     paddingVertical:normalized.wp(1)
   },
   wrapSimple2: {
@@ -73,7 +74,9 @@ const styles = StyleSheet.create({
     borderColor: AppColors.secondaryColor.lightGray,
     // marginTop: normalized.wp(2),
     paddingHorizontal: normalized.wp(2),
-    paddingVertical:normalized.wp(1)
+    paddingVertical:normalized.wp(1),
+    marginBottom:normalized.wp(3),
+    // backgroundColor:"blue"
   },
 });
 

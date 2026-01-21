@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.primaryColor.darkWhite,
     paddingHorizontal: normalized.wp(4),
     paddingTop: normalized.wp(2),
-    // backgroundColor:"red"
+    // backgroundColor:"blue"
 
   },
   logo:{
@@ -16,6 +16,34 @@ const styles = StyleSheet.create({
     // alignSelf: 'center',
     marginBottom: normalized.wp(10),
   },
+  imageContainer:{
+    height:normalized.wp(65),
+    // backgroundColor:"blue",
+    alignItems:"center",
+    justifyContent:"center"
+  },
+  title:{
+    // alignItems:"center",
+    // justifyContent:"center",
+    // backgroundColor:"red",
+    alignSelf:"center",
+    textAlign:"center",
+    fontSize:AppFonts.commonFont.small, 
+    color:AppColors.secondaryColor.lightGray,
+    fontWeight:"400"
+    },
+    btnView:{
+      marginTop:normalized.wp(5)
+    },
+    
+ txt:{
+  textAlign:"center",
+  marginTop:normalized.wp(4),
+  color:AppColors.secondaryColor.lightGray,
+  fontSize:AppFonts.commonFont.lessMedium,
+  fontWeight:"500",
+  marginBottom:normalized.wp(5)
+ },
   heading: {
     fontSize: AppFonts.commonFont.large,
     fontWeight: '700',
@@ -29,13 +57,14 @@ const styles = StyleSheet.create({
     marginBottom: normalized.hp(4),
   },
   formGap: {
-    gap: normalized.hp(2),
+    gap: normalized.wp(2),
   },
   label: {
     fontSize: AppFonts.commonFont.small,
-    fontWeight: '400',
+    fontWeight: '500',
     color: AppColors.secondaryColor.lightGray,
-    marginBottom: normalized.wp(-2),
+    // backgroundColor:"red"
+    // marginBottom: normalized.wp(-2),
     // marginBottom: normalized.hp(1),
   },
   labelFocused: {

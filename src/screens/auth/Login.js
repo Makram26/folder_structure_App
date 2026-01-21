@@ -73,7 +73,7 @@ const Login = ({ navigation }) => {
               onFocus={() => handleFocus('email')}
               onBlur={handleBlur}
               isFocused={formValues.focusedField === 'email'}
-              placeholderTextColor="#A0A0A0"
+              placeholderTextColor={AppColors.secondaryColor.lightGray}
             />
             <Text
               style={[
@@ -90,7 +90,7 @@ const Login = ({ navigation }) => {
               onFocus={() => handleFocus('password')}
               onBlur={handleBlur}
               isFocused={formValues.focusedField === 'password'}
-              placeholderTextColor="#A0A0A0"
+              placeholderTextColor={AppColors.secondaryColor.lightGray}
             />
 
             <View style={styles.rememberForgotRow}>

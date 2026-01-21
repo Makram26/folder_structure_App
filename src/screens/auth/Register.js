@@ -34,8 +34,8 @@ const Register = ({ navigation }) => {
 
   const handleRegister = () => {
     // Placeholder create account flow
-    signUp(email);
-    navigation.navigate('EmailVerification', { email });
+    // signUp(email);
+    navigation.navigate('EmailVerification');
   };
 
 

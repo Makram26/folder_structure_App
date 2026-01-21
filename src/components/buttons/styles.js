@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    width: normalized.wp('88%'),
+    width: normalized.wp('92%'),
+    
 
 
 
